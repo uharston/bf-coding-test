@@ -1,0 +1,4 @@
+class MedicalInsurancePlan < ApplicationRecord
+
+    
+end
