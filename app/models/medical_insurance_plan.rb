@@ -1,5 +1,5 @@
 class MedicalInsurancePlan < ApplicationRecord
-    validates :product_name, uniqueness: true 
+    validates :group_rating_and_product_name, uniqueness: true 
     
     
     def self.parse(pdf) 
@@ -26,6 +26,12 @@ class MedicalInsurancePlan < ApplicationRecord
             #product name 
             product_name = split[3].split(':')[2]
             insurance_plan.product_name = product_name
+
+            #group_rating_and_product_name 
+            #these are being combined to serve as a unique identifier
+            #because I want to input these plans into the database 
+            #and prevent duplicate plans from being re-entered. 
+            insurance_plan.group_rating_and_product_name = "#{group_rating} - #{product_name}"
             
             
             #rates algo
@@ -78,9 +84,8 @@ class MedicalInsurancePlan < ApplicationRecord
         end
     end
 
-    def stringToNumMatch?(num) 
+    def self.stringToNumMatch?(num) 
         case num
-        
         when "0-20"
             return ["zero_eighteen", "nineteen_twenty"]
         when "21"
