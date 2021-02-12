@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_171729) do
+ActiveRecord::Schema.define(version: 2021_02_11_181959) do
 
   create_table "medical_insurance_plans", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_171729) do
     t.string "sixty_four"
     t.string "sixty_five_plus"
     t.string "thirty"
+    t.string "group_rating_and_product_name"
   end
 
 end
