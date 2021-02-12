@@ -6,12 +6,20 @@ class MedicalInsurancePlanController < ApplicationController
     end
 
     def create 
-        plan = params[:medical_insurance_plan][:insurance_plan]
-        pdf = open(plan)
-        reader = PDF::Reader.new(pdf)
-        MedicalInsurancePlan.parse(reader)
+        plans = params[:medical_insurance_plan]
+        plans.each do |k, v| 
+            pdf = PDF::Reader.new(v.tempfile)
+            MedicalInsurancePlan.parse(pdf)
+        end
     end
-  
+
+    # def download
+    #     path = "#{Rails.root}/app/assets/pdf/BeneFix-Small-Group-Plans-upload-template.xlsx"
+    #     binding.pry
+    #     workbook = RubyXL::Parser.parse(path)
+
+    # end
 end
 
 
+ 
