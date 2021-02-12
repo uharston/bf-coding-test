@@ -1,5 +1,24 @@
 %h1 Benefix Medical Insurance Plan PDF Importer
 
 = form_for @insurance_plan do |f| 
-    = f.file_field :insurance_plan 
+    = f.file_field :insurance_plan_1
+    %br
+    = f.file_field :insurance_plan_2
+    %br
+    = f.file_field :insurance_plan_3
+    %br
+    = f.file_field :insurance_plan_4
+    %br
+    = f.file_field :insurance_plan_5
+    %br
+    = f.file_field :insurance_plan_6
+    %br
+    = f.file_field :insurance_plan_7 
+    %br
+    = f.file_field :insurance_plan_8
+
+    %br
+    %button Add Another PDF
     = f.submit "Upload"
+
+= link_to "DOWNLOAD", download_path 
