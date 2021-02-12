@@ -1,5 +1,36 @@
 %h1 Benefix Medical Insurance Plan PDF Importer
 
+%h2 Use this form to parse Benefix Medical Insurance Plans 
+%p You pick which PDF files you want converted. Upload them here. We will convert it into an Excel spreadsheet for you. 
+
+= form_for @insurance_plan, url: "/convert" do |f| 
+
+    = f.file_field :insurance_plan_1
+    %br
+    = f.file_field :insurance_plan_2
+    %br
+    = f.file_field :insurance_plan_3
+    %br
+    = f.file_field :insurance_plan_4
+    %br
+    = f.file_field :insurance_plan_5
+    %br
+    = f.file_field :insurance_plan_6
+    %br
+    = f.file_field :insurance_plan_7 
+    %br
+    = f.file_field :insurance_plan_8
+    %br
+    = f.file_field :insurance_plan_9
+
+    %br
+    = f.submit "Parse To XLSX Format"
+
+
+%h2 You can also download the plans that we have in our database. 
+
+%p You can save plans to the database. Click the link below to download an Excel spreadsheet of all the insurance plans in the database. 
+
 = form_for @insurance_plan do |f| 
     = f.file_field :insurance_plan_1
     %br
@@ -18,7 +49,9 @@
     = f.file_field :insurance_plan_8
 
     %br
-    %button Add Another PDF
-    = f.submit "Upload"
+    = f.submit "Save To Database"
+    %br
+    %br
 
-= link_to "DOWNLOAD", download_path 
+
+= link_to "DOWNLOAD PLANS FROM DATABASE", download_path 
